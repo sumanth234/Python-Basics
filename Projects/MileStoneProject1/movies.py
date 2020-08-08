@@ -11,11 +11,14 @@ def list_movies() :
     print(movies)
 
 def find_movies(movie_title) :
-    for movie in movies:
-        if movie_title == movie["MovieTitle"]:
-            return movie
+    if len(movies) > 0:
+        for movie in movies:
+            if movie_title == movie["MovieTitle"]:
+                return movie
+        else:
+            return "No Movies Found with that title"
     else:
-        return "No Movies Found with that title"
+        print("Please add movies to search")
 #or, but in the below line, else condition for for loop need to be handled
 find_movies = lambda movie_title : [movie if movie_title == movie["MovieTitle"] else "Need to be handled as else condition for for loop and not if" for movie in movies ] if len(movies) > 0 else ["Please add movies to search"]
 
